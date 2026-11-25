@@ -1,0 +1,9 @@
+bibentry(
+  bibtype = "Manual",
+  title = "metaZIP: Meta-Analysis of Rare Events with Poisson Mixture Models",
+  author = person("Zhen", "Zhang"),
+  year = "2026",
+  note = "R package version 0.1.0",
+  url = "https://github.com/zhangz19/metaZIP"
+)
+

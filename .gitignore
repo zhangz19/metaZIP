@@ -37,3 +37,9 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# Local analysis outputs and check artifacts
+/tmp/
+/output/
+/*.Rout
+/*.Rout.fail
