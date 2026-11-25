@@ -61,3 +61,42 @@ logLik.metaZIP <- function(object, model = NULL, ...) {
 vcov.metaZIP <- function(object, model = NULL, ...) {
   .select_fit(object, model)$vcov
 }
+
+print.metaZIP_legacy <- function(x, digits = 4, ...) {
+  cat("metaZIP historical EUS calculation:", x$nstudies, "single-arm studies\n")
+  cat("Estimate = mean log risk ratio; RR = exp(Estimate).\n")
+  cat("Legacy spread: inverse-Hessian SE for POIF/ZIPF; heterogeneity SD for POIR/ZIPR.\n")
+  cat("Random-model legacy limits are not confidence intervals for the mean effect.\n")
+  print(x$out, digits = digits, ...)
+  cat("Legacy npara/AIC/BIC retain the original c,d parameter count.\n")
+  invisible(x)
+}
+
+summary.metaZIP_legacy <- function(object, ...) {
+  print(object, ...)
+  cat("\nHistorical optimizer diagnostics (no adaptive quadrature check):\n")
+  print(object$diagnostics)
+  invisible(object)
+}
+
+coef.metaZIP_legacy <- function(object, ...) {
+  stats::setNames(object$out$Estimate, rownames(object$out))
+}
+
+confint.metaZIP_legacy <- function(object, ...) {
+  stop("Historical spreads include heterogeneity SDs, not SEs of the mean. ",
+       "Use engine = 'current' for mean-effect confidence intervals; ",
+       "historical limits are in $out.", call. = FALSE)
+}
+
+vcov.metaZIP_legacy <- function(object, ...) {
+  stop("The historical engine does not provide a validated covariance matrix. ",
+       "Use engine = 'current' for observed-information covariance estimates.",
+       call. = FALSE)
+}
+
+logLik.metaZIP_legacy <- function(object, ...) {
+  stop("Historical likelihoods and parameter counts are in $out. ",
+       "Use engine = 'current' for a logLik object with identifiable parameter counts.",
+       call. = FALSE)
+}

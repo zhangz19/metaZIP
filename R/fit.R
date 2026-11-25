@@ -281,12 +281,16 @@
 
 metaZIPs <- function(y, x, ni, method = c("POIF", "POIR", "ZIPF", "ZIPR"),
                      para0 = NULL, conf.level = .95, eps = .Machine$double.eps,
-                     control = list()) {
+                     control = list(), engine = c("current", "legacy")) {
+  engine <- match.arg(engine)
   values <- list(y = y, x = x, ni = ni)
   .metaZIP_validate(values, "y", "ni")
   if (!all(x %in% c(0, 1)) || length(unique(x)) != 2L)
     stop("x must contain both groups, coded 0 and 1.", call. = FALSE)
   if (any(y > ni)) stop("Event counts cannot exceed sample sizes.", call. = FALSE)
+  if (engine == "legacy")
+    return(.metaZIPs_legacy(y, x, ni, method, para0, conf.level, eps,
+                           control, match.call()))
   .metaZIP_fit(c(values, list(design = "single")), method, para0, conf.level,
                eps, control, match.call())
 }
