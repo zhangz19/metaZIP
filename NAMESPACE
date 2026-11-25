@@ -1,0 +1,13 @@
+export(metaZIPs)
+export(metaZIPr)
+S3method(print,metaZIP)
+S3method(summary,metaZIP)
+S3method(coef,metaZIP)
+S3method(confint,metaZIP)
+S3method(logLik,metaZIP)
+S3method(vcov,metaZIP)
+importFrom(stats,coef)
+importFrom(stats,confint)
+importFrom(stats,logLik)
+importFrom(stats,vcov)
+

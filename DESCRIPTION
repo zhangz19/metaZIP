@@ -1,0 +1,17 @@
+Package: metaZIP
+Title: Meta-Analysis of Rare Events with Poisson Mixture Models
+Version: 0.1.0
+Authors@R: person("Zhen", "Zhang", email = "zhangquake1@outlook.com",
+    role = c("aut", "cre", "cph"))
+Description: Fits Poisson and zero-inflated Poisson meta-analysis models
+    with Gamma baseline rates and fixed or normally distributed log risk
+    ratios. Supports independent single-arm studies and paired two-arm
+    trials, with maximum likelihood estimation, numerical diagnostics,
+    information-based uncertainty estimates, and two real-data examples.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: R (>= 4.1.0)
+Imports: stats, utils
+URL: https://github.com/zhangz19/metaZIP
+BugReports: https://github.com/zhangz19/metaZIP/issues
+

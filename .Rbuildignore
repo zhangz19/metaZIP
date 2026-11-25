@@ -1,0 +1,12 @@
+^\.git$
+^\.gitignore$
+^\.github$
+^.*\.Rproj$
+^\.Rproj\.user$
+^tests/codes\.R$
+^LICENSE\.md$
+^.*\.tar\.gz$
+^.*\.Rcheck$
+^tmp$
+^output$
+
